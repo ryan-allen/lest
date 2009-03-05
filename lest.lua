@@ -64,7 +64,7 @@ suite = {
 runner = {
   run = function(suite)
     print('Suite: ' .. suite.description)
-    for i, test in pairs(suite.tests) do
+    for n, test in ipairs(suite.tests) do
       print('  Test: ' .. test.description)
       -- set the fixture if there is a setup for the suite
       if suite.setup then fixture = suite.setup() end
