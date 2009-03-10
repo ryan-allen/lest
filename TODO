@@ -1,0 +1,10 @@
+[ ] turn lest into a lua module
+[ ] implement new api w/ basic output
+[ ] write self-test in itself w/ fake print to verify output, run with lua lest_test.lua
+[ ] implement error catching with pcall or xpcall or whatever it is, and reraise 
+[ ] catch errors in setup and teardown and exit on those failures
+[ ] look to see if lua has hooks to return 0 or 1 on exit for *nix niceness
+[ ] make output totally ace dude
+[ ] write the readme
+[ ] put on luaforge
+[ ] done!
