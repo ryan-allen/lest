@@ -109,3 +109,37 @@ runner.run({
     }
   }
 })
+
+
+-- this is the new api, that i haven't implemented yet, but it's way cooler:
+
+test = {run = function(suite) return true end}
+
+test.run({
+  ['this is a suite'] = {
+    setup = function() return fixture end,
+    teardown = function(fixture) end,
+    tests = {
+      ['this is a test'] = function(fixture) return true or false end,
+      ['this is another test'] = function(fixture) return true or false end,
+      this_is_a_nested_suite_with_an_identifier_as_key_instead_of_a_string = {
+        setup = function(fixture)
+          -- do extra stuff w/ the fixture for this suite
+          return fixture
+        end,
+        teardown = function(fixture)
+          -- is fixture passed by reference? do we have to return it to the
+          -- second teardown? also, this teardown is in case this nested
+          -- fixture's setup requires it's own special teardown in addition
+          -- to the parent's
+          -- ... also, might have to return the fixture if it isn't passed
+          -- by reference
+        end,
+        tests = {
+          a_nested_test = function(fixture) return true or false end,
+          ['another nested test'] = function(fixture) return true or false end
+        }
+      }
+    }
+  }
+})
